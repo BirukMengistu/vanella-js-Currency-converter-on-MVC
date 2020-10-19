@@ -1,0 +1,16 @@
+[{
+    "name": "Sverige",
+    "currency": "SEK"
+}, {
+    "name": "Finland",
+    "currency": "EUR"
+}, {
+    "name": "USA",
+    "currency": "USD"
+}, {
+    "name": "Storbritaniene",
+    "currency": "GBP"
+}, {
+    "name": "Frankrike",
+    "currency": "EUR"
+}]

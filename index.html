@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Steg 18 - Kunder MVC</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <script src="js/simple-helper.js"></script>
+    <script src="model/currency-Model.js"></script>
+    <script src="view/currency-View.js"></script>
+    <script src="controller/currency-Controller.js"></script>
+   <script>
+        var Current = {};
+        const model = new ValutaModel();
+        const view = new ValutaView();
+        const controller = new ValutaController();
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.getElementById('eProcessExchange').addEventListener("click", function(e) {
+                let indexFrom = document.getElementById("exchange-from").value;
+                let indexTo = document.getElementById("exchange-to").value;
+                let amount = Helper.getValue('amount');
+                controller.processExchange(amount, indexFrom, indexTo);
+            });
+            
+            Helper.onClick('eShowExchangeRates', controller.showExchangeRates);
+            Helper.onClick('eDoExchangeRates', controller.doExchangeRates);
+            Helper.onClick('eShowExchangeRatesBack', controller.showExchangeRatesBack);
+            Helper.onClick('eDoExchangeRateBack', controller.doExchangeRatesBack);
+
+            controller.init();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="main-container">
+            <div>
+                <button id="eShowExchangeRates">Visa Exchange Rate's</button>
+                <button id="eDoExchangeRates">Växla</button>
+            </div>
+        </div>
+    
+        <div id="country-list-container" style="display:none">
+            <div id="country-list"></div>
+            <button id="eShowExchangeRatesBack" class="small-button">Tillbaka</button>
+        </div>
+    
+        <div id="exchange-container" style="display:none">
+            <h1>Växla</h1>
+                <div>
+                    <label>Från valuta </label>
+                    <select id="exchange-from"></select>
+                </div>
+
+                <div>
+                    <label>Till valuta </label>
+                    <select id="exchange-to"></select>
+                </div>
+                
+                <div>
+                    <label>Belopp: </label>
+                    <input type="text" id="amount" class="is-numeric"></select>
+                </div>
+                <div>
+                    <label>Växlat belopp:</label> </label>
+                    <span id="new-amount"></span>
+                </div>
+
+                <button id="eDoExchangeRateBack" class="small-button">Tillbaka</button>
+                <button id="eProcessExchange" class="small-button">VÄXLA</button>
+        </div>
+    </div>
+</body>
+</html>
