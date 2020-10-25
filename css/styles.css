@@ -1,6 +1,17 @@
 body {
     font-family: Verdana;
 }
+/*CUSTOM SELECTOR */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
+  }
 .container {
     margin: 10px auto 0 auto;
     width: 100%;
@@ -25,10 +36,13 @@ button {
     width:120px; 
     margin-top: 24px;
     height: 24px;
-    background-color: #130563;
+    background-color:  #0c569b;
     color: #fffefe;
     margin: 12px;
 
+}
+*:focus {
+    outline: none;
 }
 h1 {
     font-size: 22px;
