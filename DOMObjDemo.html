@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>DOM-Object training</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+        let element = document.createElement('p');
+        let node = document.createTextNode('this a paragraph');
+        element.appendChild(node);
+        let elementNow = document.getElementById('Container').appendChild(element);
+        element.style.color='blue';
+
+        let elementButton = document.createElement('button');
+        let nodeButton = document.createTextNode('display');
+        elementButton.appendChild(nodeButton);
+        let elementNew = document.getElementById('Container').appendChild(elementButton);
+        elementNew.id='btn-display';
+        elementNew.addEventListener("click", doITNow);
+        //$()
+        var images = document.querySelectorAll('.galler');
+                alert(images.length);
+
+        for(let i = 0; i < images.length ; i ++){
+        let image = images[i];
+        alert(image.getAttribute('src'));
+        }
+       
+        })
+        
+        
+        function doITNow(){
+            alert('Do it now');
+            document.getElementById('btn-display').style.color= '#cc3333';
+           
+        }
+      $(document).on('click','.eDogo',function(event){
+        event.preventDefault();
+        alert('Dogo');
+      }) 
+    </script>
+</head>
+<body>
+     <div id="Container">
+         <div>
+           <button class="eDogo">Go</button>
+            <img class='galler' src="" alt="" />
+            <img class='galler' src="" alt="" />
+         </div>
+       
+        <p>DOM</p>
+        <El>DOM object</El>
+       
+        
+     </div>
+</body>
+</html>
