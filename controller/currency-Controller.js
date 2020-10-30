@@ -1,3 +1,4 @@
+
 class ValutaController{
     constructor() {}
 
@@ -10,10 +11,27 @@ class ValutaController{
             .then(response => response.json())
             .then(function(data) {   
                 view.init(Current.countries, data);
+                view.loadCountry();
+
             })
         })
         .catch(error => alert(error))
     }
+
+    weatherListLoad() {
+        model.getWeatherData()
+        .then(weatherData => {
+            let city = weatherData.city.name;
+            let dailyForecast = weatherData.list;
+            For_weather=dailyForecast;
+            console.log(For_weather);
+            view.renderData(city, For_weather);
+          });
+    }
+    
+  
+   
+
 
     processExchange(amount, indexFrom, indexTo) {
         let fromExchangeRate = Current.countries[indexFrom].exchangeRate;   
@@ -32,6 +50,9 @@ class ValutaController{
             
     showExchangeRatesBack() {
         view.showExchangeRatesBack();
+    }
+    showAllInfoCity(){
+       
     }
 
     doExchangeRatesBack() {

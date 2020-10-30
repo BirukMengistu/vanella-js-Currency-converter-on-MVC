@@ -1,16 +1,21 @@
 [{
     "name": "Sverige",
+    "City":"Stockholm",
     "currency": "SEK"
 }, {
     "name": "Finland",
+    "City":"Helsinki",
     "currency": "EUR"
 }, {
     "name": "USA",
+    "City":"Newyork",
     "currency": "USD"
 }, {
     "name": "Storbritaniene",
+    "City":"London",
     "currency": "GBP"
 }, {
     "name": "Frankrike",
+    "City":"paris",
     "currency": "EUR"
 }]

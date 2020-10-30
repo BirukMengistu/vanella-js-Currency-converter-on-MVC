@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Steg 18 - Kunder MVC</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     <script src="js/simple-helper.js"></script>
@@ -13,9 +14,12 @@
     <script src="controller/currency-Controller.js"></script>
    <script>
         var Current = {};
+        var For_weather={}
         const model = new ValutaModel();
         const view = new ValutaView();
         const controller = new ValutaController();
+       
+       // const selectionCountry = document.querySelectorAll('sle-Coun'*)
 
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -25,13 +29,13 @@
                 let amount = Helper.getValue('amount');
                 controller.processExchange(amount, indexFrom, indexTo);
             });
-            
+            Helper.onchange('select-country',controller.showAllInfoCity);
             Helper.onClick('eShowExchangeRates', controller.showExchangeRates);
             Helper.onClick('eDoExchangeRates', controller.doExchangeRates);
             Helper.onClick('eShowExchangeRatesBack', controller.showExchangeRatesBack);
             Helper.onClick('eDoExchangeRateBack', controller.doExchangeRatesBack);
-
-            controller.init();
+            controller.init()
+            controller.weatherListLoad()
         });
 
     </script>
@@ -39,6 +43,11 @@
 <body>
     <div class="container">
         <div id="main-container">
+            <div>
+                <label>select country</label>
+                 <div id='select-country'></div>
+            </div>
+
             <div>
                 <button id="eShowExchangeRates">Visa Exchange Rate's</button>
                 <button id="eDoExchangeRates">Växla</button>
@@ -54,6 +63,8 @@
             <h1>Växla</h1>
                 <div>
                     <label>Från valuta </label>
+                    
+                   
                     <select id="exchange-from"></select>
                 </div>
 
@@ -75,5 +86,15 @@
                 <button id="eProcessExchange" class="small-button">VÄXLA</button>
         </div>
     </div>
+    <div class="component__weather-box">
+        <div class="component__weather-content">
+          <div id ='weather-content__overview'class="weather-content__overview"></div>
+          <div id='weather-content__temp' class="weather-content__temp"></div>
+        </div>
+        <div id="component__forecast-box" class="component__forecast-box">
+
+        </div>
+      </div>
+    
 </body>
 </html>

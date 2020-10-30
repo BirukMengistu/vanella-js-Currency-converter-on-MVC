@@ -27,7 +27,9 @@ Helper.hide = function (tag) {
 Helper.onClick = function (tag, action) {
     document.getElementById(tag).addEventListener("click", action);
 }
-
+ Helper.onchange = function (tag, action) {
+    document.getElementById(tag).addEventListener('change', action);
+} 
 document.addEventListener('DOMContentLoaded', function() {
     let classes = document.getElementsByClassName('is-numeric');
     for (var i = 0; i < classes.length; ++i) {
