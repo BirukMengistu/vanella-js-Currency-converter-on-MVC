@@ -1,21 +1,31 @@
 [{
     "name": "Sverige",
     "City":"Stockholm",
-    "currency": "SEK"
+    "currency": "SEK",
+    "Population": 975904,
+    "AreaCode":"0046"
 }, {
     "name": "Finland",
     "City":"Helsinki",
-    "currency": "EUR"
+    "currency": "EUR",
+    "Population": 631695 ,
+    "AreaCode":"00332"
 }, {
     "name": "USA",
-    "City":"Newyork",
-    "currency": "USD"
+    "City":"New York",
+    "currency": "USD",
+    "Population": 8399000,
+    "AreaCode":"00370"
 }, {
     "name": "Storbritaniene",
     "City":"London",
-    "currency": "GBP"
+    "currency": "GBP",
+    "Population": 839900,
+    "AreaCode":"0020"
 }, {
     "name": "Frankrike",
     "City":"paris",
-    "currency": "EUR"
+    "currency": "EUR",
+    "Population": 2.161000,
+    "AreaCode":"0033"
 }]

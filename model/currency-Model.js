@@ -23,7 +23,17 @@ class ValutaModel{
     }
 
     getWeatherData() {
-        const URL = "https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&cnt=7&units=imperial&APPID=2d5a44be63bd6e373470666cac187727";
+        const URL = "https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&cnt=5&units=imperial&APPID=2d5a44be63bd6e373470666cac187727";
+        let headers = new Headers();
+        return fetch(URL, {
+          method: 'GET',
+          headers: headers
+        }).then(data => {
+          return data.json();
+        });
+      }
+      getWeatherDataAfterLoad(city) {
+        const URL = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&cnt=5&units=imperial&APPID=2d5a44be63bd6e373470666cac187727";
         let headers = new Headers();
         return fetch(URL, {
           method: 'GET',

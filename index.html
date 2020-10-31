@@ -29,13 +29,14 @@
                 let amount = Helper.getValue('amount');
                 controller.processExchange(amount, indexFrom, indexTo);
             });
-            Helper.onchange('select-country',controller.showAllInfoCity);
+            
+            Helper.onClick('displayCityInfo',controller.showAllInfoCity)
             Helper.onClick('eShowExchangeRates', controller.showExchangeRates);
             Helper.onClick('eDoExchangeRates', controller.doExchangeRates);
             Helper.onClick('eShowExchangeRatesBack', controller.showExchangeRatesBack);
             Helper.onClick('eDoExchangeRateBack', controller.doExchangeRatesBack);
             controller.init()
-            controller.weatherListLoad()
+           // controller.weatherListLoad()
         });
 
     </script>
@@ -46,6 +47,7 @@
             <div>
                 <label>select country</label>
                  <div id='select-country'></div>
+                 <button id='displayCityInfo'>About the City</button>
             </div>
 
             <div>

@@ -65,49 +65,56 @@ label {
 
 .component__weather-box {
     margin: 30px auto;
-    width: 420px;
-    border: 1px solid #de6042;
+    width: 500px;
+    border: 1px solid #37aedd;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 2px 5px 20px 1px #444;
+    box-shadow: 2px 5px 20px 1px rgb(26, 10, 85);
   }
   
   .component__weather-content {
     position: relative;
     overflow: hidden;
     color: #fff;
-    background: #E06B4F;
+    background: #0778c4;
     height: 120px;
+  }
+  .component__weather-content:hover {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: #0778c4;
+    height: 300px;
   }
   
   .component__weather-content:before {
     content: "";
-    display: block;
+    display:inline-flex;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 200%;
     z-index: 1;
     opacity: 0.3;
-    background-image: url("https://nunnz.files.wordpress.com/2013/11/4.jpg");
+    /* background-image: url("https://nunnz.files.wordpress.com/2013/11/4.jpg");
     background-repeat: no-repeat;
     background-position: 0 63%;
-    background-size: cover;
+    background-size: cover; */
   }
   
   .weather-content__overview {
     width: 50%;
     text-align: center;
-    display: inline-block;
+    display:block;
    /*  float: left; */
     z-index: 2;
     position: relative;
   }
   
   h1 {
-    font-weight: 400;
-    font-size: 40px;
+
+    font-size: 20px;
     line-height: 40px;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -115,15 +122,13 @@ label {
   }
   
   .weather-content__temp {
-    width: 50%;
-    z-index: 2;
+    display: flex;
+    flex-direction: row;
+  }
+  .weather-content__temp div {
+    font-size: 30px;
+    flex: 1;
     text-align: center;
-    float: left;
-    font-size: 50px;
-    text-align: center;
-    margin-top: 0.5em;
-    position: relative;
-    vertical-align: middle;
   }
   
   .weather-content__temp .degrees {
@@ -152,9 +157,10 @@ label {
     text-align: center;
   }
   
+  
   .forecast-item__heading {
-    background: #e68872;
-    border: 1px solid #d64826;
+    background: #4577b9;
+    border: 1px solid #5696eb;
     border-left: none;
     text-transform: uppercase;
     color: #fff;
@@ -165,9 +171,9 @@ label {
   
   .forecast-item__info {
     background: #fff;
-    color: #E06B4F;
+    color: #4577b9;
     padding-bottom: 10px;
-    border-right: 1px solid #d64826;
+    border-right: 1px solid #5696eb;
   }
   
   .forecast-item__info .wi {
@@ -178,7 +184,7 @@ label {
   }
   
   .forecast-item__info .degrees {
-    font-size: 20px;
+    font-size: 15px;
     line-height: 20px;
   }
   

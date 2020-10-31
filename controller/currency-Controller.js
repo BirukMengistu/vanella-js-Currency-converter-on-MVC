@@ -24,7 +24,16 @@ class ValutaController{
             let city = weatherData.city.name;
             let dailyForecast = weatherData.list;
             For_weather=dailyForecast;
-            console.log(For_weather);
+            view.renderData(city, For_weather);
+          });
+    }
+    weatherAfterLoad(city) {
+        model.getWeatherDataAfterLoad(city)
+        .then(weatherData => {
+            let city = weatherData.city.name;
+            let dailyForecast = weatherData.list;
+            For_weather=dailyForecast;
+            view.showCityInfo(city);
             view.renderData(city, For_weather);
           });
     }
@@ -52,7 +61,7 @@ class ValutaController{
         view.showExchangeRatesBack();
     }
     showAllInfoCity(){
-       
+      view. showCityWeatherAndCurrency() ;
     }
 
     doExchangeRatesBack() {

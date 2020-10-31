@@ -3,7 +3,7 @@ const iconUrlDFirstString = 'src="http://openweathermap.org/img/w/'
 class ValutaView{
     loadCountry() {
         Helper.hide('main-container');
-        let html = '<select id = "sle-Coun" style="width: 400px" >';
+        let html = '<select id = "option-City" style="width: 400px" >';
             for (let i=0; i< Current.countries.length; i++) {
             html += '<option value='+ Current.countries[i].City+'>';
                 html +=  Current.countries[i].City + ' ';
@@ -31,8 +31,33 @@ class ValutaView{
         Helper.setHtml('country-list', html);
         Helper.show('country-list-container');
     }
+
+    showCityInfo(city) {
+        Helper.hide('main-container');
+        let html = '<table style="width: 400px">';
+        const temp= Current.countries;
+        const result =temp.filter(word => word.City === city);
+   
+            html += '<tr><td>Country</td><td>Currency </td><td>Area-Code</td><td>Population</td></tr>';
+            for (let i=0; i< result.length; i++) {
+            html += '<tr>';
+                html += '<td>' + result[i].City + '</td>';
+                html += '<td>' + result[i].currency + '</td>';
+                html += '<td>' + result[i].AreaCode + '</td>';
+                html += '<td>' + result[i].Population + '</td>';
+                
+            html += '</tr>';     
+        }
+        html += '</table>';
+        Helper.setHtml('country-list', html);
+        Helper.show('country-list-container');
+    }
     showCityWeatherAndCurrency(){
-    
+        var e = document.getElementById("option-City");
+        let city = e.value;
+        controller.weatherAfterLoad(city);
+        
+       
     }
     init(countries, valutor) {
         for (let i=0; i<countries.length; i++) {
@@ -98,24 +123,25 @@ class ValutaView{
     }
     renderData = (location, forecast) => {
        const currentWeather = forecast[0].weather[0];
-       const widgetHeader = `<h1>${location}</h1><small>${currentWeather.main.description}</small>`;
-        let current_temp ='';
-        current_temp +=  '<img src="http://openweathermap.org/img/w/'+ forecast[0].weather[0].icon + '.png" >'+ Math.round(forecast[0].main.temp) + '<i class="wi wi-degrees"></i>'; 
-        Helper.setHtml('weather-content__temp', current_temp);
-        forecast.forEach(day => {
-           
-            let date = new Date(day.dt * 1000);
-            Helper.setHtml('weather-content__overview', date.getDate());  
+        let current_temp = document.createElement("div");
+        current_temp.className= 'heading-temp-box'
+        current_temp.innerHTML =  `<h6>${location} ${forecast[0].dt_txt}</h6><small>${currentWeather.description}</small>
+                                   <img src="http://openweathermap.org/img/w/${forecast[0].weather[0].icon}.png" />${Math.round(forecast[0].main.temp)} <i class="wi wi-degrees"></i>`
+        document.getElementById('weather-content__temp').appendChild(current_temp);
+       for (let i=0; i< forecast.length; i++)
+        {
+            let date = new Date(forecast[i].dt_txt);
+            console.log(forecast[i].dt_txt);
             let days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
             let name = days[date.getDay()];
             let dayBlock = document.createElement("div");
                 dayBlock.className = 'forecast__item';
                 dayBlock.innerHTML = `<div class="forecast-item__heading">${name}
-                                     <img style="hieght:20px" src='http://openweathermap.org/img/w/${day.weather[0].icon}.png'/>
-                                     <span class="degrees"> ${ Math.round(day.main.temp)} <i class="wi wi-degrees"></i></span></div>`
+                                     <img style="hieght:20px" src='http://openweathermap.org/img/w/${forecast[i].weather[0].icon}.png'/>
+                                     <span class="degrees"> ${ Math.round(forecast[i].main.temp)} <i class="wi wi-degrees"></i></span></div>`
                 //Helper.setHtml(,);
                 document.getElementById('component__forecast-box').appendChild(dayBlock);
-        });
+        }
         
       }
 
